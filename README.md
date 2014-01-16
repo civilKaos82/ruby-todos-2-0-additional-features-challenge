@@ -2,6 +2,11 @@
  
 ##Learning Competencies 
 
+* Use a MVC design pattern to model a problem
+* Create well-defined classes with a single responsibility
+* Identify and implement classes based on real world requirements
+* Implement clean and flexible interfaces between objects
+
 ##Summary 
 
  We're going to add three new commands to our TODO app.
@@ -22,9 +27,11 @@ In English, these correspond to the following user stories:
 
 Each one of these features will likely require changing the file format and the parsing code that you've written.
 
-## Objectives
+##Releases
 
-### Implement the list:outstanding command
+###Release 0 : Add Features
+
+####Implement the list:outstanding command
 
 Implement a command that works like
 
@@ -36,7 +43,7 @@ This should display a list of outstanding tasks sorted by *completion date*.
 
 *User Experience Alert*: They say that defaults matter.  What do you think the default sort direction should be and why?  Newest tasks first or oldest tasks first?  Would your answer change if a user had a really long TODO list?
 
-### Implement the list:completed command
+#### Implement the list:completed command
 
 Implement a command that works like
 
@@ -46,7 +53,7 @@ $ ruby todo.rb list:completed
 
 This should display a list of outstanding tasks sorted by *completion date*.  The same **user experience** considerations apply here, too.
 
-### Implement the tag command
+#### Implement the tag command
 
 Implement a command that works like
 
@@ -59,11 +66,11 @@ $ ruby todo.rb tag 2 personal pet-care
 Tagging task "Walk the dog" with tags: personal, pet-care
 ```
 
-Each task can have multiple tags, so you'll have to change your file format to accomodate that.  
+Each task can have multiple tags, so you'll have to change your file format to accommodate that.  
 
 If you implemented the extra credit feature from part 1 about the `todo.txt` file being human-readable, try to keep that constraint: you should be able to print out `todo.txt`, hand it to your grandmother, and have her recognize it as a TODO list.
 
-### Implement the filter command
+###Release 1 : Implement the filter command
 
 Implement a `filter` command that works like
 
@@ -80,11 +87,8 @@ $ ruby todo.rb filter:personal
 ```
 
 This should display a list of all tasks with the *personal* tag sorted by *creation date*.
- 
 
-##Releases
-###Release 0 
 
-##Optimize Your Learning 
+<!-- ##Optimize Your Learning  -->
 
 ##Resources
