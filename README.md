@@ -39,7 +39,7 @@ Implement a command that works like
 $ ruby todo.rb list:outstanding
 ```
 
-This should display a list of outstanding tasks sorted by *completion date*.
+This should display a list of outstanding tasks sorted by *creation date*.
 
 *User Experience Alert*: They say that defaults matter.  What do you think the default sort direction should be and why?  Newest tasks first or oldest tasks first?  Would your answer change if a user had a really long TODO list?
 
@@ -51,7 +51,7 @@ Implement a command that works like
 $ ruby todo.rb list:completed
 ```
 
-This should display a list of outstanding tasks sorted by *completion date*.  The same **user experience** considerations apply here, too.
+This should display a list of completed tasks sorted by *completion date*.  The same **user experience** considerations apply here, too.
 
 #### Implement the tag command
 
