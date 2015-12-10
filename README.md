@@ -68,7 +68,7 @@ Tagging task "Walk the dog" with tags: personal, pet-care
 
 Each task can have multiple tags, so you'll have to change your file format to accommodate that.  
 
-If you implemented the extra credit feature from part 1 about the `todo.txt` file being human-readable, try to keep that constraint: you should be able to print out `todo.txt`, hand it to your grandmother, and have her recognize it as a TODO list.
+If you implemented the extra credit feature from part 1 about the `todo.txt` file being human-readable, try to keep that constraint: you should be able to print out `todo.txt`, hand it to someone who doesn't have experience using computers, and have them recognize it as a TODO list.
 
 ###Release 1 : Implement the filter command
 
