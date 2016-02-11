@@ -1,25 +1,9 @@
 # Todo List: Additional Features 
  
 
-##Summary 
+## Summary 
+This challenge is a continuation of a [command line todo list challenge][].  We'll take an application that meets all the requirements specified in that challenge and add some additional features.  Write the best object-oriented code we can!
 
- We're going to add three new commands to our TODO app.
-
-```text
-$ ruby todo.rb list:outstanding
-$ ruby todo.rb list:completed
-$ ruby todo.rb tag <task_id> <tag_name_1> <tag_name_2> ... <tag_name_N>
-$ ruby todo.rb filter:<tag_name>
-```
-
-In English, these correspond to the following user stories:
-
-1. As a user, I want to list all my outstanding tasks sorted by *creation* date.
-2. As a user, I want to list all my completed tasks sorted by *completion* date.
-3. As a user, I want to tag tasks, e.g., home, work, errand, etc.
-4. As a user, I want to list all tasks with a particular tag sorted by *creation* date.
-
-Each one of these features will likely require changing the file format and the parsing code that you've written.
 
 ##Releases
 
@@ -86,3 +70,6 @@ This should display a list of all tasks with the *personal* tag sorted by *creat
 <!-- ##Optimize Your Learning  -->
 
 ##Resources
+
+
+[command line todo list challenge]: ../../../ruby-todos-1-0-core-features-challenge
