@@ -28,11 +28,11 @@ if ARGV.any?
     items = ItemParser.parse(DATA_FILENAME)
     list = List.new(items: items)
 
-    item_to_remove = list.delete(option)
+    removed_item = list.delete(option)
 
-    if item_to_remove
+    if removed_item
       ItemParser.save(DATA_FILENAME, list.items)
-      puts "Removed \"#{item_to_remove.description}\" from the list."
+      puts "Removed \"#{removed_item.description}\" from the list."
     else
       puts "No item matching \"#{option}\" could be found."
     end
