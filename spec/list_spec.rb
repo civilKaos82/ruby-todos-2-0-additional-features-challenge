@@ -17,4 +17,12 @@ describe List do
   it "is not empty if it has items" do
     expect(list).to_not be_empty
   end
+
+  it "iterates over its items" do
+    expect { |b| list.each &b }.to yield_successive_args(completed_item, incomplete_item)
+  end
+
+  it "maps its items" do
+    expect(list.map(&:description)).to eq ["Sleep in.", "Take a nap."]
+  end
 end
