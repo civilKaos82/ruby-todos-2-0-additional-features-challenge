@@ -56,4 +56,18 @@ describe Item do
       end
     end
   end
+
+  describe "matching an item with a piece of text" do
+    it "returns true if the item description contains the text" do
+      expect(item.match?("Take Jayda")).to be true
+    end
+
+    it "is case insensitive" do
+      expect(item.match?("TAKE JAYDA")).to be true
+    end
+
+    it "returns false it the item description does not contain the text" do
+      expect(item.match?("Tenley")).to be false
+    end
+  end
 end

@@ -23,7 +23,7 @@ class List
   end
 
   def find(target)
-    items.find { |item| item.description.downcase.match(target.downcase) }
+    items.find { |item| item.match?(target) }
   end
 
   def map

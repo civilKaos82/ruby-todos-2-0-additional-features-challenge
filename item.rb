@@ -20,6 +20,10 @@ class Item
     @complete = true
   end
 
+  def match?(text)
+    !!description.match(/#{text}/i)
+  end
+
   def to_s
     "#{completeness_marker} #{description}"
   end
