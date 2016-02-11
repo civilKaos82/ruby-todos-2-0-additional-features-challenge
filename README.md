@@ -1,4 +1,4 @@
-# Ruby Todos 2 0 Additional Features 
+# Todo List: Additional Features 
  
 ##Learning Competencies 
 
