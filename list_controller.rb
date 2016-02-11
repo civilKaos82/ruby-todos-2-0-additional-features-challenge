@@ -1,12 +1,10 @@
 class ListController
-  class NoFilenameError < StandardError; end
   class NoParserError < StandardError; end
 
-  attr_reader :filename, :parser
+  attr_reader :parser
 
-  def initialize(args = {})
-    @filename = args[:filename] || raise(NoFilenameError, "A list controller needs the filename where item data is stored.")
-    @parser = args[:parser] || raise(NoParserError, "A list controller needs a parser to interact with the data file.")
+  def initialize(parser)
+    @parser = parser || raise(NoParserError, "A list controller needs a parser to interact with the data file.")
   end
 
   def run(command, option = nil)
@@ -20,12 +18,12 @@ class ListController
 
   private
   def items
-    @items ||= parser.parse(filename)
+    @items ||= parser.parse
   end
 
   def add(description)
     item = Item.new(description: description)
-    parser.append(filename, item)
+    parser.append(item)
 
     appended_message(item)
   end
@@ -39,7 +37,7 @@ class ListController
 
     if item_to_complete
       item_to_complete.mark_complete
-      parser.save(filename, list.items)
+      parser.save(list.items)
       marked_complete_message(item_to_complete)
     else
       no_match_message(target_text)
@@ -66,7 +64,7 @@ class ListController
     removed_item = list.delete(target_text)
 
     if removed_item
-      parser.save(filename, list.items)
+      parser.save(list.items)
       removed_message(removed_item)
     else
       no_match_message(target_text)

@@ -3,23 +3,15 @@ require_relative "spec_helper"
 describe ListController do
   after(:all) { File.truncate(TEST_DATA_FILENAME, 0) }
 
-  let(:parser) { ItemParser }
-  let(:controller) { ListController.new(filename: TEST_DATA_FILENAME, parser: parser) }
-
-  it "has a filename" do
-    expect(controller.filename).to eq TEST_DATA_FILENAME
-  end
-
-  it "requires a filename" do
-    expect { ListController.new(filename: nil, parser: parser) }.to raise_error(ListController::NoFilenameError)
-  end
+  let(:parser) { ItemParser.new(TEST_DATA_FILENAME) }
+  let(:controller) { ListController.new(parser) }
 
   it "has a parser" do
     expect(controller.parser).to be parser
   end
 
   it "requires a parser" do
-    expect { ListController.new(filename: "somefile.txt") }.to raise_error(ListController::NoParserError)
+    expect { ListController.new(nil) }.to raise_error(ListController::NoParserError)
   end
 
   describe "listing items" do

@@ -10,6 +10,8 @@ if ARGV.any?
   command = ARGV[0]
   option = ARGV[1]
 
-  controller = ListController.new(filename: DATA_FILENAME, parser: ItemParser)
+  item_parser = ItemParser.new(DATA_FILENAME)
+  controller = ListController.new(item_parser)
+
   puts controller.run(command, option)
 end
