@@ -1,6 +1,4 @@
 class List
-  include Enumerable
-
   attr_reader :items
 
   def initialize(args = {})
@@ -26,6 +24,10 @@ class List
 
   def find(target)
     items.find { |item| item.description.downcase.match(target.downcase) }
+  end
+
+  def map
+    items.map { |item| yield(item) }
   end
 
   private
