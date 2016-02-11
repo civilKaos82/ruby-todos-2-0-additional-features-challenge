@@ -16,11 +16,13 @@ if ARGV.any?
 
     puts ListView.new(list)
 
+
   when "add"
     item = Item.new(description: option)
     ItemParser.append(DATA_FILENAME, item)
 
     puts "Appended \"#{option}\" to the list."
+
 
   when "remove"
     items = ItemParser.parse(DATA_FILENAME)
@@ -31,6 +33,21 @@ if ARGV.any?
     if item_to_remove
       ItemParser.save(DATA_FILENAME, list.items)
       puts "Removed \"#{item_to_remove.description}\" from the list."
+    else
+      puts "No item matching \"#{option}\" could be found."
+    end
+
+
+  when "complete"
+    items = ItemParser.parse(DATA_FILENAME)
+    list = List.new(items: items)
+
+    item_to_complete = list.find(option)
+
+    if item_to_complete
+      item_to_complete.mark_complete
+      ItemParser.save(DATA_FILENAME, list.items)
+      puts "Marked \"#{item_to_complete.description}\" as complete."
     else
       puts "No item matching \"#{option}\" could be found."
     end

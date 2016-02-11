@@ -49,4 +49,14 @@ describe List do
       end
     end
   end
+
+  describe "finding an item" do
+    it "returns the matching item" do
+      expect(list.find("sleep")).to be completed_item
+    end
+
+    it "returns nil if there's no matching item" do
+      expect(list.find("eat")).to be_nil
+    end
+  end
 end
