@@ -9,4 +9,3 @@
 [ ] Read Ruby Under a Microscope.
 [ ] Book eye appointment for new glasses.
 [ ] Learn how to pick locks.
-[ ] Find good recipe for dinner party.

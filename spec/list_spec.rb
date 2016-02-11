@@ -25,4 +25,28 @@ describe List do
   it "maps its items" do
     expect(list.map(&:description)).to eq ["Sleep in.", "Take a nap."]
   end
+
+  describe "deleting an item" do
+    context "when list has an item with a matching description" do
+      it "removes the matching item" do
+        expect(list.items).to include completed_item
+        list.delete("sleep")
+        expect(list.items).to_not include completed_item
+      end
+
+      it "returns the matching item" do
+        expect(list.delete("sleep")).to be completed_item
+      end
+    end
+
+    context "when list does not have an item with a matching description" do
+      it "does not change the list's items" do
+        expect { list.delete("eat") }.to_not change { list.items }
+      end
+
+      it "returns nil" do
+        expect(list.delete("eat")).to be_nil
+      end
+    end
+  end
 end
