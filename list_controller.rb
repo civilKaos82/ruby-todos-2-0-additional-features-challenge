@@ -1,5 +1,6 @@
 class ListController
   class NoParserError < StandardError; end
+  class InvalidCommand < StandardError; end
 
   attr_reader :parser
 
@@ -13,6 +14,7 @@ class ListController
     when "list"     then display_list
     when "remove"   then remove(option)
     when "complete" then complete(option)
+    else raise(InvalidCommand, "The command \"#{command}\" is invalid.")
     end
   end
 
