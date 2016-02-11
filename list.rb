@@ -25,7 +25,7 @@ class List
   end
 
   def find(target)
-    items.find { |item| item.description.downcase.match(target) }
+    items.find { |item| item.description.downcase.match(target.downcase) }
   end
 
   private
