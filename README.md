@@ -5,7 +5,10 @@
 This challenge is a continuation of a [command line todo list challenge][].  We'll take an application that meets all the requirements specified in that challenge and add some additional features.  Write the best object-oriented code we can!
 
 
-##Releases
+## Releases
+### Pre-release: Review the Code Base
+We're provided with a working todo list application, based on the requirements of the [command line todo list challenge][].  We can use the application to display a list of items, add items, remove items, and mark items as complete.  Run the tests and review the code.  What objects are there?  How do they work together?  Be sure to understand how the provided application works because we're going to dive into it when it's time to add new features.
+
 
 ###Release 0 : Add Features
 
