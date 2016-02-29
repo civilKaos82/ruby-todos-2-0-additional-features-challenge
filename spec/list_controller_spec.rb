@@ -3,19 +3,33 @@ require_relative "spec_helper"
 describe ListController do
   after(:all) { File.truncate(TEST_DATA_FILENAME, 0) }
 
-  let(:parser) { ItemParser.new(TEST_DATA_FILENAME) }
-  let(:controller) { ListController.new(parser) }
+  let(:filename) { TEST_DATA_FILENAME }
+  let(:parser) { ItemParser }
+  let(:writer) { ItemWriter }
+  let(:controller) { ListController.new(filename: filename, parser: parser, writer: writer) }
 
-  it "has a parser" do
+  it "has a filename where item data is persisted" do
+    expect(controller.filename).to be filename
+  end
+
+  it "has a parser to read in items" do
     expect(controller.parser).to be parser
   end
 
-  it "requires a parser" do
-    expect { ListController.new(nil) }.to raise_error(ListController::NoParserError)
+  it "has a writer to persist items" do
+    expect(controller.writer).to be writer
   end
 
-  describe "listing items" do
+  it "requires a filename" do
+    expect { ListController.new(parser: parser, writer: writer) }.to raise_error(ListController::NoFilenameError)
+  end
 
+  it "requires a parser" do
+    expect { ListController.new(filename: filename, writer: writer) }.to raise_error(ListController::NoParserError)
+  end
+
+  it "requires a writer" do
+    expect {ListController.new(filename: filename, parser: parser) }.to raise_error(ListController::NoWriterError)
   end
 
   describe "running commands" do
