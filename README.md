@@ -65,10 +65,8 @@ $ ruby todo_list_runner.rb list #blessed
 *Note:*  Our data file might start to feel a little messy now that we're storing the complete status, description, date created, date completed, and any tags.  Try to keep the constraint that the file is human readable and is recognizable as a todo list if printed out.
 
 
+## Conclusion
 
-<!-- ##Optimize Your Learning  -->
-
-##Resources
 
 
 [command line todo list challenge]: ../../../ruby-todos-1-0-core-features-challenge
