@@ -2,7 +2,7 @@ class List
   attr_reader :items
 
   def initialize(args = {})
-    @items = args.fetch(:items, Array.new)
+    self.items = args.fetch(:items, Array.new)
   end
 
   def delete(target)

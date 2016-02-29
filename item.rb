@@ -20,7 +20,7 @@ class Item
   end
 
   def mark_complete
-    @complete = true
+    self.complete = true
   end
 
   def match?(text)
