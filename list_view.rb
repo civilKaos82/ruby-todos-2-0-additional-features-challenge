@@ -1,9 +1,5 @@
-class ListView
-  def initialize(list)
-    @list = list
-  end
-
-  def to_s
+module ListView
+  def self.render(list)
     list.map { |item| formatted_item(item) }.join("\n")
   end
 
@@ -13,12 +9,12 @@ class ListView
 
   attr_reader :list
 
-  def formatted_item(item)
+  def self.formatted_item(item)
     "#{marker_for(item)} #{item.description}"
   end
 
 
-  def marker_for(item)
+  def self.marker_for(item)
     item.complete? ? ITEM_COMPLETE_MARKER : ITEM_INCOMPLETE_MARKER
   end
 end

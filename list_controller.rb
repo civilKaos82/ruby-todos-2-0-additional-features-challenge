@@ -51,7 +51,7 @@ class ListController
   end
 
   def display_list
-    ListView.new(list).to_s
+    ListView.render(list)
   end
 
   def list
