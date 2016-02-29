@@ -12,8 +12,14 @@ module ItemWriter
   end
 
   private
+  COMPLETE_MARKER = "[X]"
+  INCOMPLETE_MARKER = "[ ]"
+
   def self.add_item_to_file(file, item)
-    file << "#{item}\n"
+    file << "#{marker_for(item)} #{item.description}\n"
   end
 
+  def self.marker_for(item)
+    item.complete? ? COMPLETE_MARKER : INCOMPLETE_MARKER
+  end
 end
