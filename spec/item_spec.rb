@@ -41,22 +41,6 @@ describe Item do
     end
   end
 
-  describe "representing an item as a string" do
-    context "when the item is complete" do
-      it "is formatted '[X] description'" do
-        completed_item = Item.new(description: "Hit the gym.", complete: true)
-        expect(completed_item.to_s).to eq "[X] Hit the gym."
-      end
-    end
-
-    context "when the item is incomplete" do
-      it "is formatted '[ ] description'" do
-        incomplete_item = Item.new(description: "Study.")
-        expect(incomplete_item.to_s).to eq "[ ] Study."
-      end
-    end
-  end
-
   describe "matching an item with a piece of text" do
     it "returns true if the item description contains the text" do
       expect(item.match?("Take Jayda")).to be true

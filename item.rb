@@ -24,10 +24,6 @@ class Item
     !!description.match(/#{text}/i)
   end
 
-  def to_s
-    "#{completeness_marker} #{description}"
-  end
-
   private
   def complete=(status)
     @complete = !!status
