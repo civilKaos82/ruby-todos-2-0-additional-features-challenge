@@ -118,7 +118,7 @@ describe ListController do
     end
 
     it "raises an error if it doesn't know how to handle a command" do
-      expect { controller.run("sing and dance") }.to raise_error(ListController::InvalidCommand, "The command \"sing and dance\" is invalid.")
+      expect { controller.run("sing and dance") }.to raise_error(ListController::UnsupportedCommand, "The command \"sing and dance\" is invalid.")
     end
   end
 end

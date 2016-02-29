@@ -2,7 +2,7 @@ class ListController
   class NoFilenameError < StandardError; end
   class NoParserError < StandardError; end
   class NoWriterError < StandardError; end
-  class InvalidCommand < StandardError; end
+  class UnsupportedCommand < StandardError; end
 
   attr_reader :filename, :parser, :writer
 
@@ -18,7 +18,7 @@ class ListController
     when "list"     then display_list
     when "remove"   then remove(option)
     when "complete" then complete(option)
-    else raise(InvalidCommand, "The command \"#{command}\" is invalid.")
+    else raise(UnsupportedCommand, "The command \"#{command}\" is invalid.")
     end
   end
 
