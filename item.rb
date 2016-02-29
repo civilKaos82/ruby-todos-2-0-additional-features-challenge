@@ -24,7 +24,7 @@ class Item
   end
 
   def match?(text)
-    !!description.match(/#{text}/i)
+    description.match(/#{text}/i) ? true : false
   end
 
   private
