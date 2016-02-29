@@ -1,4 +1,7 @@
 class Item
+  COMPLETE_MARKER = "[X]"
+  INCOMPLETE_MARKER = "[ ]"
+
   class InvalidItemDescription < StandardError; end
 
   attr_reader :description
@@ -27,10 +30,6 @@ class Item
   private
   def complete=(status)
     @complete = !!status
-  end
-
-  def completeness_marker
-    complete? ? "[X]" : "[ ]"
   end
 
   def description=(description)
