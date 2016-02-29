@@ -12,7 +12,7 @@ class Item
   end
 
   def complete?
-    !!@complete
+    @complete
   end
 
   def incomplete?
