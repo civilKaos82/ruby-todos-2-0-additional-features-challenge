@@ -66,7 +66,9 @@ $ ruby todo_list_runner.rb list #blessed
 
 
 ## Conclusion
+We had to jump into an existing code base.  Before beginning the challenge, we had to read and understand what how the existing code functions?  How was that?  Was it easy?  Overwhelming?  What have we learned about working with an existing code base?
 
+As we added features we had to decide how to update our application.  Do we need new objects?  Should we modify existing objects?  How did we identify which object should be responsible for the new behaviors?  Do we feel good about the decisions we made?  What could we do better going forward?
 
 
 [command line todo list challenge]: ../../../ruby-todos-1-0-core-features-challenge
