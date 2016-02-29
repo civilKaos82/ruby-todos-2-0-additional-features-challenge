@@ -12,22 +12,12 @@ class List
     item_to_delete
   end
 
-  def each
-    items.each do |item|
-      yield(item)
-    end
-  end
-
   def empty?
     items.empty?
   end
 
   def find(target)
     items.find { |item| item.match?(target) }
-  end
-
-  def map
-    items.map { |item| yield(item) }
   end
 
   private

@@ -1,6 +1,6 @@
 module ListView
   def self.render(list)
-    list.map { |item| formatted_item(item) }.join("\n")
+    list.items.map { |item| formatted_item(item) }.join("\n")
   end
 
   private

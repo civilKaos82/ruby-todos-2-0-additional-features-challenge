@@ -18,14 +18,6 @@ describe List do
     expect(list).to_not be_empty
   end
 
-  it "iterates over its items" do
-    expect { |b| list.each &b }.to yield_successive_args(completed_item, incomplete_item)
-  end
-
-  it "maps its items" do
-    expect(list.map(&:description)).to eq ["Sleep in.", "Take a nap."]
-  end
-
   describe "deleting an item" do
     context "when list has an item with a matching description" do
       it "removes the matching item" do
