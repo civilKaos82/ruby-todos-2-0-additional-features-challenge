@@ -1,94 +1,74 @@
-# Ruby Todos 2 0 Additional Features 
+# Todo List: Additional Features 
  
-##Learning Competencies 
 
-* Use a MVC design pattern to model a problem
-* Create well-defined classes with a single responsibility
-* Identify and implement classes based on real world requirements
-* Implement clean and flexible interfaces between objects
+## Summary 
+This challenge is a continuation of a [command line todo list challenge][].  We'll take an application that meets all the requirements specified in that challenge and add some additional features.  Write the best object-oriented code we can!
 
-##Summary 
 
- We're going to add three new commands to our TODO app.
+## Releases
+### Pre-release: Review the Code Base
+We're provided with a working todo list application, based on the requirements of the [command line todo list challenge][].  We can use the application to display a list of items, add items, remove items, and mark items as complete.  Run the tests and review the code.  What objects are there?  How do they work together?  Be sure to understand how the provided application works because we're going to dive into it when it's time to add new features.
 
-```text
-$ ruby todo.rb list:outstanding
-$ ruby todo.rb list:completed
-$ ruby todo.rb tag <task_id> <tag_name_1> <tag_name_2> ... <tag_name_N>
-$ ruby todo.rb filter:<tag_name>
+
+### Release 0: Creation Date and Completion Date
+We have an `Item` class with two attributes:  a complete status and a description.  We want to begin storing the dates when items are created and when they are completed.
+
+So, when a new item is added to the list, we need to save the date when the item was added.  When an item is marked complete, we need to save the date when the item was completed.  How will we represent these timestamps in our data file?  How will we represent them in Ruby?  Could this change how an item determines whether or not it's complete or incomplete?
+
+Think through how to implement this new feature.  What objects are affected?  How are they affected?  Write tests for any new behaviors and update any tests that are affected by this change.  
+
+*Note:*  Edit the data file as necessary.
+
+
+### Release 1: Display a Sorted List
+Now that we're tracking when our items are created, let's update how we display the list of items.  Instead of printing them in any order, print them in chronological order—the newest item at the top and the oldest at the bottom.
+
+
+### Release 2: Filter the List
+When a user wants to view the list of items, our application displays every item—both completed items and incomplete items.  We are going to add a feature that allows users to display all the items, only completed items, or only incomplete items (see Figure 1).
+
+```ruby
+$ ruby todo_list_runner.rb list
+[X] Milk the cow.
+[ ] Gather the eggs.
+[X] Feed the pigs.
+
+$ ruby todo_list_runner.rb list completed
+[X] Milk the cow.
+[X] Feed the pigs.
+
+$ ruby todo_list_runner.rb list incomplete
+[ ] Gather the eggs.
 ```
+*Figure 1*.  Listing options:  all, complete, and incomplete.
 
-In English, these correspond to the following user stories:
 
-1. As a user, I want to list all my outstanding tasks sorted by *creation* date.
-2. As a user, I want to list all my completed tasks sorted by *completion* date.
-3. As a user, I want to tag tasks, e.g., home, work, errand, etc.
-4. As a user, I want to list all tasks with a particular tag sorted by *creation* date.
+### Release 3: Tagging Items and Filtering by Tag
+Our todo list can often contain subsections of related items:  personal items, financial items, pet-related items, etc.  We want users to be able to filter a list to show a specific group of items.
 
-Each one of these features will likely require changing the file format and the parsing code that you've written.
+We're going to implement item tagging.  We'll be adding two new commands for running our application:  one for tagging an item and one for displaying items with a specific tag (see Figure 2).  An item can have multiple tags.
 
-##Releases
+```ruby
+$ ruby todo_list_runner.rb list
+[X] Submit refund paperwork
+[ ] Cash refund check.
 
-###Release 0 : Add Features
+$ ruby todo_list_runner.rb tag "cash refund" #blessed #financial
+Tagged "Cash refund check." with the tags #blessed, #financial.
 
-####Implement the list:outstanding command
-
-Implement a command that works like
-
-```text
-$ ruby todo.rb list:outstanding
+$ ruby todo_list_runner.rb list #blessed
+[ ] Cash refund check.
 ```
-
-This should display a list of outstanding tasks sorted by *creation date*.
-
-*User Experience Alert*: They say that defaults matter.  What do you think the default sort direction should be and why?  Newest tasks first or oldest tasks first?  Would your answer change if a user had a really long TODO list?
-
-#### Implement the list:completed command
-
-Implement a command that works like
-
-```text
-$ ruby todo.rb list:completed
-```
-
-This should display a list of completed tasks sorted by *completion date*.  The same **user experience** considerations apply here, too.
-
-#### Implement the tag command
-
-Implement a command that works like
-
-```text
-$ ruby todo.rb list
-1. Eat some pie
-2. Walk the dog
-
-$ ruby todo.rb tag 2 personal pet-care
-Tagging task "Walk the dog" with tags: personal, pet-care
-```
-
-Each task can have multiple tags, so you'll have to change your file format to accommodate that.  
-
-If you implemented the extra credit feature from part 1 about the `todo.txt` file being human-readable, try to keep that constraint: you should be able to print out `todo.txt`, hand it to someone who doesn't have experience using computers, and have them recognize it as a TODO list.
-
-###Release 1 : Implement the filter command
-
-Implement a `filter` command that works like
-
-```text
-$ ruby todo.rb list
-1. Eat some pie
-2. Walk the dog
-
-$ ruby todo.rb tag 2 personal pet-care
-Tagging task "Walk the dog" with tags: personal, pet-care
-
-$ ruby todo.rb filter:personal
-2. Walk the dog [personal]
-```
-
-This should display a list of all tasks with the *personal* tag sorted by *creation date*.
+*Figure 2*.  Tagging items and filtering the list by a tag.
 
 
-<!-- ##Optimize Your Learning  -->
+*Note:*  Our data file might start to feel a little messy now that we're storing the complete status, description, date created, date completed, and any tags.  Try to keep the constraint that the file is human readable and is recognizable as a todo list if printed out.
 
-##Resources
+
+## Conclusion
+We had to jump into an existing code base.  Before beginning the challenge, we had to read and understand what how the existing code functions?  How was that?  Was it easy?  Overwhelming?  What have we learned about working with an existing code base?
+
+As we added features we had to decide how to update our application.  Do we need new objects?  Should we modify existing objects?  How did we identify which object should be responsible for the new behaviors?  Do we feel good about the decisions we made?  What could we do better going forward?
+
+
+[command line todo list challenge]: ../../../ruby-todos-1-0-core-features-challenge
