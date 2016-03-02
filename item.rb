@@ -1,7 +1,4 @@
 class Item
-  COMPLETE_MARKER = "[X]"
-  INCOMPLETE_MARKER = "[ ]"
-
   class InvalidItemDescription < StandardError; end
 
   attr_reader :description
