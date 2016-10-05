@@ -27,7 +27,7 @@ Now that we're tracking when our items are created, let's update how we display 
 ### Release 2: Filter the List
 When a user wants to view the list of items, our application displays every item—both completed items and incomplete items.  We are going to add a feature that allows users to display all the items, only completed items, or only incomplete items (see Figure 1).
 
-```ruby
+```
 $ ruby todo_list_runner.rb list
 [X] Milk the cow.
 [ ] Gather the eggs.
@@ -48,7 +48,7 @@ Our todo list can often contain subsections of related items:  personal items, f
 
 We're going to implement item tagging.  We'll be adding two new commands for running our application:  one for tagging an item and one for displaying items with a specific tag (see Figure 2).  An item can have multiple tags.
 
-```ruby
+```
 $ ruby todo_list_runner.rb list
 [X] Submit refund paperwork
 [ ] Cash refund check.
